@@ -38,29 +38,41 @@ const displayContacts = () => {
   return(
 contacts.map(({id, pictureUrl, name, popularity, wonOscar, wonEmmy}) =>{
  return(
-    <div  className="App">
-     
-      <h1>Ironcontacts</h1>
-     <p>{id}</p>
-  <img src={pictureUrl} alt="actorImg"/>
-    <p>{name}</p>
-    <p>{popularity}</p>
-    <p>{wonOscar}</p>
-    <p>{wonEmmy}</p>
-    {wonOscar && <p>🏆</p>}
-    <button onClick={() => handleDelete(id)}>Delete</button>
+    <div className="App">
+      
+   <table className='dif-columns'> 
+  <tr><td><img src={pictureUrl} alt="actorImg"/></td>
+  <td>{name}</td>
+  <td>{popularity}</td>
+  <td>{wonOscar}</td>
+    <td>{wonEmmy}</td>
+    {wonOscar && <td>🏆</td>}
+    <td><button onClick={() => handleDelete(id)}>Delete</button></td>
+    </tr>
+    </table>
     </div> 
   )
 }))
 }
 return(
-  <div>
+  <div className='info-display'>
+    <h1>Ironhack</h1>
+   
   <div className='action-buttons'>
     <button onClick={() => addContact()}>Add contact</button>
     <button onClick={() => sortByName()}>Sort by name</button>
     <button onClick={() => sortByPopularity()}>Sort by popularity</button>
   </div>
 <div className='display'>
+  <table>
+  <th>Picture</th>
+  <th>Name</th>
+  <th>popularity</th>
+  <th>Won Oscar</th>
+  <th>Won Emmy</th>
+  </table>
+
+
 {
 displayContacts()
 }
