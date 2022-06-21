@@ -2,9 +2,10 @@ import {useState} from 'react';
 import contactData from './contacts.json'; 
 import './App.css';
 
+const contactsCopy=[...contactData];
 
 function App() {
-  const [contacts, setContacts]= useState(contactData);
+  const [contacts, setContacts]= useState(contactsCopy.slice(0,5));
   const handleDelete = (id) => {
     setContacts(contacts.filter(contact => contact.id !== id));
   }
@@ -13,9 +14,7 @@ function App() {
     setContacts([]); 
   }
   
-  const fiveContacts = ()=>{
-   const contactsCopy=[...contacts];
-  setContacts( contactsCopy.slice(0,5))}
+
 
 
   const addContact = () => {
